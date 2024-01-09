@@ -19,6 +19,14 @@
   margin-top: 20px;
 }
 
+#checkbox-wrapper {
+  display: inline-block;
+}
+
+#label-wrapper {
+  display: inline-block;
+}
+
 a {
   font-weight: 500;
   color: #646cff;

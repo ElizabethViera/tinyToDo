@@ -18,20 +18,45 @@ function useLocalStorageState<T>(
   ];
 }
 
-function App() {
-  const [items, setItems] = useLocalStorageState<string[]>(
-    ["first", "second", "third", "fourth"],
-    "items"
+const ToDo = () => {
+  const [label, setLabel] = useLocalStorageState<string>("", "label");
+  return (
+    <div className="label-wrapper">
+      <input
+        type="text"
+        value={label}
+        onChange={(e) => setLabel(e.currentTarget.value)}
+      />
+    </div>
   );
+};
+
+const Checkbox = () => {
+  const [isChecked, setIsChecked] = useLocalStorageState<boolean>(
+    false,
+    "checkbox"
+  );
+  return (
+    <div className="checkbox-wrapper">
+      <input
+        type="checkbox"
+        checked={isChecked}
+        onChange={(prev) => setIsChecked(!prev)}
+      />
+    </div>
+  );
+};
+
+function App() {
+  const [items, setItems] = useLocalStorageState<string[]>([], "items");
 
   return (
     <div>
       <h1>To Do:</h1>
       {items.map((i) => (
-        <div id={i}>
-          {" "}
-          <input type="checkbox"></input>{" "}
-          <input type="text" id="{i}" name="{i}"></input>
+        <div id={`item ${i}`}>
+          <Checkbox />
+          <ToDo />
         </div>
       ))}
       <div>
