@@ -19,11 +19,11 @@
   margin-top: 20px;
 }
 
-#checkbox-wrapper {
+.checkbox-wrapper {
   display: inline-block;
 }
 
-#label-wrapper {
+.label-wrapper {
   display: inline-block;
 }
 
