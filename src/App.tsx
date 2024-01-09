@@ -18,7 +18,7 @@ function useLocalStorageState<T>(
   ];
 }
 
-const ToDo = (id: string) => {
+const ToDo = ({ id }: { id: string }) => {
   const [label, setLabel] = useLocalStorageState<string>("", "label");
   return (
     <div className="label-wrapper">
@@ -32,7 +32,7 @@ const ToDo = (id: string) => {
   );
 };
 
-const Checkbox = (id: string) => {
+const Checkbox = ({ id }: { id: string }) => {
   const [isChecked, setIsChecked] = useLocalStorageState<boolean>(
     false,
     "checkbox"
